@@ -1,0 +1,7 @@
+1. I found an example in the class SimpleBlackjack for if(dealer.isInsuranceAvailable()). The if statement is 1 (meaning it has been covered) but is highlighted red because there has not been a test case where dealer.isInsuranceAvailable() has returned true. This means that the for loop encapsulated within the if statement has not been executed by the test suite. It is untested.
+
+2. Java interfaces are not implementations themselves, they are a promise that the enumerated methods will be implemented elsewhere. They are N/A for coverage purposes because they cannot be covered. If they are indeed implemented in other files and used in methods, they can be covered- for example, look at the N/A file DealerAction which includes the method dealCard(...). It is uncovered because it is unimplemented. Now look at lines 27 and 28 of SimpleBlackjack- these are covered cases of dealCard(...) because they are using its implementation.
+
+3. It is testing the whole module rather than the individual components. The problem with this is that testing the whole module leaves rather limited results when you don't test the individual components because the domains of input for an entire module is huge and so there's no way this one functional test could actually test whether each representative case of using the module is correct. It would make more sense to test the small input domains of each method involved (i.e. unit testing) and then after those have passed move over to the entire module.
+
+4. The more if/else statements, the more branches to be covered.  

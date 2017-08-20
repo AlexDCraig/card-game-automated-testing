@@ -1,0 +1,50 @@
+LASTZERO:
+
+Inputs that throw exceptions:
+- Array given to function consists of non-integer types (e.g. doubles)
+
+Inputs that provide incorrect output:
+- If the element 0 holds a 0 and the size of the array is > 1, then the loop exits early and incorrectly returns -1.
+- If it is a singleton set array and the element 0 is a 0, incorrect return of -1.
+
+LastZero doesn't visit the first element.
+
+1. CORRECTION OF LASTZERO:
+public static int lastZero(int[] arr)
+{
+	for (int i = arr.length -1; i >= 0; i--)
+	{
+		if (arr[i] == 0)
+		{
+			return i;
+		}
+	}
+		
+	return -1;
+}
+
+
+2. Yes, it is possible to organize each of my test case functions for Warmup into disjoint partitions. 
+
+Parameter: takes one int array
+How to partition into blocks of the domain that are disjoint:
+
+- Block #1: there is 0 elements in the array
+Ex: int result = WarmUp.lastZero(new int[] { });
+assertEquals(result, -1);
+
+- Block #2: there is 1 element in the array
+Ex: int result = WarmUp.lastZero(new int[] { 0 });
+assertEquals(result, 0);
+
+- Block #3: there is > 1 element in the array
+My other three functions. Ex:
+int result = WarmUp.lastZero(new int[] { 0, 1, 2, 3, 0 });
+assertEquals(result, 4);
+
+Since we are testing on the length of the array, these test cases
+are by definition disjoint. You can't have an array that is length 0 and 1. Length is fixed for this function: an array of length 1 will not be considered for the test case where there is an array of > 1.
+
+3. Blocks should be disjoint because they are testing input that is relevant to the property that they describe. If they aren't disjoint, then an input that has no relevance to the block might be tested and the test results thus cannot be trusted. If you tested any given array on the order of it, then you may end up with an array of size 1, in which the array is sorted in ascending order, descending order, and arbitrary order. This is a case where the order doesn't matter, then why should it be tested in this block? This block has nothing to do with it.
+
+

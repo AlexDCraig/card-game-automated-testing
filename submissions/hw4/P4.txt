@@ -1,0 +1,7 @@
+1. True
+2. False
+3. False - can't just cover all statements, you also have to get to nodes with AND without executing certain pieces of code.
+4. True - 100% branch coverage implies 100% statement coverage because both are equal for if-then-else constructs.
+5. False - 100% path coverage means every possible path through the code has been executed, it is a much more comprehensive statement about the testing quality than branch coverage.
+6. I would say they mostly aligned. My intuition for what a good test suite is is testing each method by way of testing representative inputs, that is, you don't need to try every value but a general value that holds for a wide range along with values that are strange, that might break the code. If you practice this intuition, then your coverage results will be great because you tried each method.
+7. If it is well written input domain partitioning applied to every method, then it will have good coverage and be a very good test suite. If it is a test suite specifically written to optimize coverage metrics, it is probably a terrible test suite. A well partitioned input domain that is tested will likely find edge cases that are important, a test suite written to coverage metrics will probably not, because simply covering a bunch of code does not guarantee that the tests themselves accurately test the sensitive items that need to be tested.

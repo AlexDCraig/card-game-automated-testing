@@ -1,0 +1,37 @@
+LASTZERO:
+
+Inputs that throw exceptions:
+- Array given to function consists of non-integer types (e.g. doubles)
+
+Inputs that provide incorrect output:
+- If the element 0 holds a 0 and the size of the array is > 1, then the loop exits early and incorrectly returns -1.
+- If it is a singleton set array and the element 0 is a 0, incorrect return of -1.
+
+LAST:
+
+Exceptions:
+- Array provided that consists of non-integers
+- Array consists of one element and the value the user is looking for isn't that value
+
+Incorrect output:
+- Array is > 1 and there are two matches for the value
+- Array is > 1 and the value that is being searched for is not in element 0 but is indeed
+in the array
+
+POSITIVE:
+
+Exceptions:
+- array of other types besides integers
+- array is null
+
+Incorrect output:
+- None
+
+ODDORPOS:
+
+Exceptions:
+- array is null
+- array of other types besides integers
+
+Incorrect output:
+- doesn't count negative odd numbers

@@ -1,0 +1,13 @@
+	The bug occurs when you add two decks to a CardCollection object and try to remove a Card using discardCard. 
+	A test case that reproduces it:
+	Suppose twiceDeck() is a List of Cards that contains all of the Cards we  get when we add two full decks to a CardCollection object.
+	Suppose we remove element 4 in the CardCollection object.
+	Let checkCards() be a List of Cards we get when we return the CardCollection object's current deck with element 4 removed.
+	Then, checkCards.get(4) should be the same as twiceDeck.get(5), because 4 has been removed so 5 should be shifted back.
+	assertEquals((checkCards.get(4)), (twiceDeck.get(5)));
+	PROBLEM: This is not the case. Element 5 is not successfully shifted back, the card collection loses its basic order.
+	OUTPUT OF JUNIT: expected <SEVENCLUB> but was <EIGHTCLUB>
+	Would this error surface...:
+	- I don't think so- I believe this error just occurs when you remove a Card that is 0 < x < size-1.
+	- Definitely, if you end up with duplicate cards and you remove a random index this error will occur.
+	- Definitely, this error surfaces when you remove a card that is 0 < x < size-1.
