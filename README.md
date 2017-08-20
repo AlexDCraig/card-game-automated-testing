@@ -1,2 +1,0 @@
-# SoftwareTestingPractice
-# SoftwareTestingPractice
